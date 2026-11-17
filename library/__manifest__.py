@@ -23,6 +23,7 @@
     ### Data Loaded ###
     "data": [
         "security/ir.model.access.csv",
+        "views/book_views.xml",
         "views/author_views.xml",
     ],
 }
