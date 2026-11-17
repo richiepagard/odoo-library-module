@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class LibraryBook(models.Model):
@@ -17,7 +18,7 @@ class LibraryBook(models.Model):
         description (str): Book's description for more information.
     """
 
-    _name = "book"
+    _name = "library.book"
     _description = "Librarary Books"
 
     title = fields.Char(required=True)
@@ -29,7 +30,7 @@ class LibraryBook(models.Model):
     publish_year = fields.Integer(string="Yearh Published")
     age = fields.Integer(
         compute="_compute_age",
-        stirng="Book's age base on its published year"
+        string="Book's age base on its published year"
     )
     pages = fields.Integer()
     state = fields.Selection(
@@ -39,7 +40,7 @@ class LibraryBook(models.Model):
     is_active = fields.Boolean(default=True)
     description = fields.Text()
 
-    @api.depends("age")
+    @api.depends("publish_year")
     def _compute_age(self):
         """
         Calculate the age of the book according to its published year.
@@ -47,9 +48,9 @@ class LibraryBook(models.Model):
         current_year = fields.Date.today().year
 
         for book in self:
-            book.age = current_year - book.year if book.year else 0
+            book.age = current_year - book.publish_year if book.publish_year else 0
 
-    @api.constrains("year")
+    @api.constrains("publish_year")
     def _check_year(self):
         """
         Check whether the published year of the book is correct.
@@ -59,5 +60,5 @@ class LibraryBook(models.Model):
         current_year = fields.Date.today().year
 
         for book in self:
-            if book.year > current_year:
+            if book.publish_year > current_year:
                 raise ValidationError("The publication year cannot be in the future!")
