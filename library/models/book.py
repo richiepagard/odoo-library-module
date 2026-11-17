@@ -36,7 +36,7 @@ class LibraryBook(models.Model):
         [ ("available", "Available"), ("lost", "Lost") ],
         default="available"
     )
-    is_active = feilds.Boolean(default=True)
+    is_active = fields.Boolean(default=True)
     description = fields.Text()
 
     @api.depends("age")

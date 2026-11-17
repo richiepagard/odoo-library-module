@@ -1,2 +1,6 @@
 ### SWP Files ###
 *.swp
+
+### Cache Files ###
+/__pycache__/
+__pycache__/
