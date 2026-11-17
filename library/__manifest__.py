@@ -1,33 +1,28 @@
 {
-    'name': "library",
+    ### Module information ###
+    "name": "library",
+    "summary": "Manage books in a small library",
+    "description": """
+        Small library to manage books and its properties
+        such as its authors.
+        """,
+    "application": True,
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    ### Author information and License ###
+    "author": "Richie Pagard",
+    "website": "https://github.com/richiepagard",
+    "license": "LGPL-3",
 
-    'description': """
-Long description of module's purpose
-    """,
+    ### Necessary modules ###
+    "depends": ["base"],
 
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    ### Module category and version ###
+    "category": "Uncategorized",
+    "version": "19.0.1.0.0",
 
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
-
-    # any module necessary for this one to work correctly
-    'depends': ['base'],
-
-    # always loaded
-    'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
+    ### Data Loaded ###
+    "data": [
+        "security/ir.model.access.csv",
+        "views/author_views.xml",
     ],
 }
-
