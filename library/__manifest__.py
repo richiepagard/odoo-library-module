@@ -26,4 +26,17 @@
         "views/book_views.xml",
         "views/author_views.xml",
     ],
+
+    ### Assets Registration ###
+    "assets": {
+        "web.assets_backend": [
+            "library/static/src/css/farsi_font.css",
+        ],
+        "web.assets_frontend": [
+            "library/static/src/css/farsi_font.css",
+        ],
+        "web.report_assets_common": [
+            "library/static/src/css/farsi_font.css",
+        ],
+    },
 }
