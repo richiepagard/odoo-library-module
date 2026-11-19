@@ -19,3 +19,8 @@ class LibraryState(models.Model):
         inverse_name="state_id",
         string="Cities"
     )
+    author_ids = fields.One2many(
+        cmodel_name="library.author",
+        inverse_name="state_id",
+        string="Authors"
+    )
