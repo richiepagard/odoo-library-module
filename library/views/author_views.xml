@@ -15,6 +15,13 @@
 						<field name="birth_year"/>
 						<field name="is_active"/>
 					</group>
+					<separator/>
+
+					<group>
+						<field name="country_id"/>
+						<field name="state_id"/>
+						<field name="city_id"/>
+					</group>
 
 				</sheet>
 			</form>
@@ -32,6 +39,9 @@
 				<field name="birth_year"/>
 				<field name="is_active"/>
 				<field name="books_count"/>
+				<field name="country_id"/>
+				<field name="state_id"/>
+				<field name="city_id"/>
 
 			</list>
 		</field>

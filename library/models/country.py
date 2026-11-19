@@ -15,3 +15,8 @@ class LibraryCountry(models.Model):
         inverse_name="country_id",
         string="States"
     )
+    author_ids = fields.One2many(
+        comodel_name="library.author",
+        inverse_name="country_id",
+        string="Authors"
+    )
