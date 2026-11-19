@@ -12,6 +12,7 @@
 
 					<group>
 						<field name="name"/>
+						<field name="country_id"/>
 					</group>
 
 				</sheet>
@@ -26,6 +27,7 @@
 		<field name="arch" type="xml">
 			<list string="States">
 				<field name="name"/>
+				<field name="country_id"/>
 			</list>
 		</field>
 	</record>
@@ -38,6 +40,7 @@
 			<search string="Search States">
 
 				<field name="name"/>
+				<field name="country_id"/>
 				<separator/>
 
 			</search>

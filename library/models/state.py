@@ -11,7 +11,7 @@ class LibraryState(models.Model):
 
     name = fields.Char(required=True)
     country_id = fields.Many2one(
-        comodel="library.country",
+        comodel_name="library.country",
         string="Country"
     )
     city_ids = fields.One2many(

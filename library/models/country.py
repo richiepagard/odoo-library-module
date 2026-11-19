@@ -1,4 +1,4 @@
-from odoo import feilds, models
+from odoo import fields, models
 
 
 class LibraryCountry(models.Model):
@@ -10,8 +10,8 @@ class LibraryCountry(models.Model):
     _description = "Countries of states"
 
     name = fields.Char(required=True)
-    state_ids = fields.One2Many(
-        comodel="library.state",
+    state_ids = fields.One2many(
+        comodel_name="library.state",
         inverse_name="country_id",
         string="States"
     )

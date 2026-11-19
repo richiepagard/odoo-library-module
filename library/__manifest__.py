@@ -25,6 +25,10 @@
         "security/ir.model.access.csv",
         "views/book_views.xml",
         "views/author_views.xml",
+        # State and Cities
+        "views/country_views.xml",
+        "views/state_views.xml",
+        "views/city_views.xml"
     ],
 
     ### Assets Registration ###
