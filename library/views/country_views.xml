@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+	<record id="library_country_view_form" model="ir.ui.view">
+		<field name="name">library.country.view.form</field>
+		<field name="model">library.country</field>
+
+		<field name="arch" type="xml">
+			<form string="Country">
+				<sheet>
+
+					<group>
+						<field name="name"/>
+					</group>
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="library_country_view_list" model="ir.ui.view">
+		<field name="name">library.country.view.list</field>
+		<field name="model">library.country</field>
+
+		<field name="arch" type="xml">
+			<list string="Countries">
+				<field name="name"/>
+			</list>
+		</field>
+	</record>
+
+	<record id="library_country_view_search" model="ir.ui.view">
+		<field name="name">library.country.view.search</field>
+		<field name="model">library.country</field>
+
+		<field name="arch" type="xml">
+			<search string="Search Countries">
+
+				<field name="name"/>
+				<separator/>
+
+			</search>
+		</field>
+	</record>
+
+	<record id="library_country_action" model="ir.actions.act_window">
+		<field name="name">Countries</field>
+		<field name="res_model">library.country</field>
+		<field name="view_mode">list,form</field>
+	</record>
+
+	<menuitem
+		id="library_country_menu"
+		name="Countries"
+		parent="library_root_menu"
+		action="library_country_action"
+		/>
+
+</odoo>
