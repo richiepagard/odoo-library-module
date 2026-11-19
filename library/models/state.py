@@ -10,6 +10,10 @@ class LibraryState(models.Model):
     _description = "States of cities"
 
     name = fields.Char(required=True)
+    country_id = fields.Many2one(
+        comodel="library.country",
+        string="Country"
+    )
     city_ids = fields.One2many(
         comodel_name="library.city",
         inverse_name="state_id",
