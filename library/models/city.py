@@ -15,6 +15,11 @@ class LibraryCity(models.Model):
         string="State"
     )
     population = fields.Integer()
+    author_ids = fields.One2many(
+        comodel_name="library.author",
+        inverse_name="city_id",
+        string="Authors"
+    )
 
 
     @api.depends("name", "state_id")

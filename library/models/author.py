@@ -25,6 +25,19 @@ class LibraryAuthor(models.Model):
         string="books"
     )
     books_count = fields.Integer(compute="_compute_books_count")
+    # Nationality
+    country_id = fields.Many2one(
+        comodel_name="library.country",
+        string="Country"
+    )
+    state_id = fields.Many2one(
+        comodel_name="library.state",
+        string="State"
+    )
+    city_id = fields.Many2one(
+        comodel_name="library.city",
+        string="City"
+    )
 
     @api.depends("book_ids")
     def _compute_books_count(self):
