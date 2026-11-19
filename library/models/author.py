@@ -25,6 +25,7 @@ class LibraryAuthor(models.Model):
         string="books"
     )
     books_count = fields.Integer(compute="_compute_books_count")
+    biography = fields.Text()
     # Nationality
     country_id = fields.Many2one(
         comodel_name="library.country",
