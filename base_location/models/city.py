@@ -1,25 +1,20 @@
 from odoo import api, fields, models
 
 
-class LibraryCity(models.Model):
+class BaseLocationCity(models.Model):
     """
     Represents to the cities which are came from a state.
     """
 
-    _name = "library.city"
+    _name = "base_location.city"
     _description = "Cities came from states"
 
     name = fields.Char(required=True)
     state_id = fields.Many2one(
-        comodel_name="library.state",
+        comodel_name="base_location.state",
         string="State"
     )
     population = fields.Integer()
-    author_ids = fields.One2many(
-        comodel_name="library.author",
-        inverse_name="city_id",
-        string="Authors"
-    )
 
 
     @api.depends("name", "state_id")
@@ -29,4 +24,7 @@ class LibraryCity(models.Model):
         Showing the name of the city with its state.
         """
         for city in self:
-            city.display_name = f"{city.name} ({city.state_id.name})"
+            if city.state_id:
+                city.display_name = f"{city.name} ({city.state_id.name})"
+            else:
+                city.display_name = city.name

@@ -28,15 +28,15 @@ class LibraryAuthor(models.Model):
     biography = fields.Text()
     # Nationality
     country_id = fields.Many2one(
-        comodel_name="library.country",
+        comodel_name="base_location.country",
         string="Country"
     )
     state_id = fields.Many2one(
-        comodel_name="library.state",
+        comodel_name="base_location.state",
         string="State"
     )
     city_id = fields.Many2one(
-        comodel_name="library.city",
+        comodel_name="base_location.city",
         string="City"
     )
 

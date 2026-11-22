@@ -14,7 +14,7 @@
     "license": "LGPL-3",
 
     ### Necessary modules ###
-    "depends": ["base"],
+    "depends": ["base", "base_location"],
 
     ### Module category and version ###
     "category": "Uncategorized",
@@ -25,22 +25,6 @@
         "security/ir.model.access.csv",
         "views/book_views.xml",
         "views/author_views.xml",
-        # State and Cities
-        "views/country_views.xml",
-        "views/state_views.xml",
-        "views/city_views.xml"
     ],
 
-    ### Assets Registration ###
-    "assets": {
-        "web.assets_backend": [
-            "library/static/src/css/farsi_font.css",
-        ],
-        "web.assets_frontend": [
-            "library/static/src/css/farsi_font.css",
-        ],
-        "web.report_assets_common": [
-            "library/static/src/css/farsi_font.css",
-        ],
-    },
 }

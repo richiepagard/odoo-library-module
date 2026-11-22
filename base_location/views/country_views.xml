@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+	<record id="base_location_country_view_form" model="ir.ui.view">
+		<field name="name">base_location.country.view.form</field>
+		<field name="model">base_location.country</field>
+
+		<field name="arch" type="xml">
+			<form string="Country">
+				<sheet>
+
+					<group>
+						<field name="name"/>
+					</group>
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="base_location_country_view_list" model="ir.ui.view">
+		<field name="name">base_location.country.view.list</field>
+		<field name="model">base_location.country</field>
+
+		<field name="arch" type="xml">
+			<list string="Countries">
+				<field name="name"/>
+			</list>
+		</field>
+	</record>
+
+	<record id="base_location_country_view_search" model="ir.ui.view">
+		<field name="name">base_location.country.view.search</field>
+		<field name="model">base_location.country</field>
+
+		<field name="arch" type="xml">
+			<search string="Search Countries">
+
+				<field name="name"/>
+				<separator/>
+
+			</search>
+		</field>
+	</record>
+
+	<record id="base_location_country_action" model="ir.actions.act_window">
+		<field name="name">Countries</field>
+		<field name="res_model">base_location.country</field>
+		<field name="view_mode">list,form</field>
+	</record>
+
+
+	<menuitem id="base_location_root_menu" name="Base Location"/>
+
+	<menuitem
+		id="base_location_country_menu"
+		name="Countries"
+		parent="base_location_root_menu"
+		action="base_location_country_action"
+		/>
+
+</odoo>
