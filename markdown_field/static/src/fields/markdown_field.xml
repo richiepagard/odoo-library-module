@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="markdown_field.MarkdownField">
+        <div class="o_markdown_field">
+            <div t-if="!props.readonly"
+                 class="btn-group btn-group-sm mb-1"
+                 t-on-mousedown="onToolbarMouseDown">
+                <t t-if="!state.preview">
+                    <button type="button" class="btn btn-light" title="Bold"
+                            t-on-click="() => this.wrap('**')"><b>B</b></button>
+                    <button type="button" class="btn btn-light" title="Italic"
+                            t-on-click="() => this.wrap('*')"><i>I</i></button>
+                    <button type="button" class="btn btn-light" title="Heading 1"
+                            t-on-click="() => this.prefixLines('# ')">H1</button>
+                    <button type="button" class="btn btn-light" title="Heading 2"
+                            t-on-click="() => this.prefixLines('## ')">H2</button>
+                    <button type="button" class="btn btn-light" title="Heading 3"
+                            t-on-click="() => this.prefixLines('### ')">H3</button>
+                    <button type="button" class="btn btn-light" title="List"
+                            t-on-click="() => this.prefixLines('- ')"><i class="fa fa-list-ul"/></button>
+                    <button type="button" class="btn btn-light" title="Quote"
+                            t-on-click="() => this.prefixLines('> ')"><i class="fa fa-quote-right"/></button>
+                    <button type="button" class="btn btn-light" title="Code"
+                            t-on-click="() => this.wrap('`')"><i class="fa fa-code"/></button>
+                    <button type="button" class="btn btn-light" title="Link"
+                            t-on-click="() => this.wrap('[', '](https://)')"><i class="fa fa-link"/></button>
+                </t>
+                <button type="button"
+                        t-attf-class="btn #{state.preview ? 'btn-primary' : 'btn-light'}"
+                        title="Toggle preview"
+                        t-on-click="togglePreview">
+                    <i t-attf-class="fa #{state.preview ? 'fa-pencil' : 'fa-eye'}"/>
+                    <t t-esc="state.preview ? ' Edit' : ' Preview'"/>
+                </button>
+            </div>
+            <div t-if="showPreview" class="o_markdown_preview" t-out="previewHtml"/>
+            <textarea t-ref="textarea"
+                      t-att-class="'o_input form-control font-monospace' + (showPreview ? ' d-none' : '')"
+                      rows="8"
+                      t-att-readonly="props.readonly"/>
+        </div>
+    </t>
+</templates>

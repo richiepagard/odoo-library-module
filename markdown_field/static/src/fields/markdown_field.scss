@@ -1,0 +1,27 @@
+.o_markdown_preview {
+    min-height: 3rem;
+    padding: 0.25rem 0;
+    h1 { font-size: 1.5rem; margin: 0.75rem 0 0.5rem; }
+    h2 { font-size: 1.3rem; margin: 0.75rem 0 0.5rem; }
+    h3 { font-size: 1.15rem; margin: 0.75rem 0 0.5rem; }
+    h4, h5, h6 { font-size: 1rem; margin: 0.5rem 0; }
+    p { margin-bottom: 0.5rem; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 0.5rem; }
+    blockquote {
+        margin: 0.5rem 0;
+        padding: 0.25rem 0.75rem;
+        border-left: 3px solid var(--bs-border-color, #ccc);
+        color: var(--bs-secondary-color, #6c757d);
+    }
+    code {
+        padding: 0 0.25rem;
+        border-radius: 3px;
+        background: var(--bs-tertiary-bg, #f1f1f1);
+    }
+    pre {
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        background: var(--bs-tertiary-bg, #f1f1f1);
+        code { padding: 0; background: none; }
+    }
+}
