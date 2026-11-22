@@ -1,22 +1,17 @@
 from odoo import fields, models
 
 
-class LibraryCountry(models.Model):
+class BaseLocationCountry(models.Model):
     """
     Represents to the countries of states.
     """
 
-    _name = "library.country"
+    _name = "base_location.country"
     _description = "Countries of states"
 
     name = fields.Char(required=True)
     state_ids = fields.One2many(
-        comodel_name="library.state",
+        comodel_name="base_location.state",
         inverse_name="country_id",
         string="States"
-    )
-    author_ids = fields.One2many(
-        comodel_name="library.author",
-        inverse_name="country_id",
-        string="Authors"
     )

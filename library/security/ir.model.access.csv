@@ -2,7 +2,3 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_library_book_user,library.book user,model_library_book,base.group_user,1,1,1,1
 access_library_author_user,library.author user,model_library_author,base.group_user,1,1,1,1
-
-access_library_country_user,library.country user,model_library_country,base.group_user,1,1,1,1
-access_library_state_user,library.state user,model_library_state,base.group_user,1,1,1,1
-access_library_city_user,library.city user,model_library_city,base.group_user,1,1,1,1
