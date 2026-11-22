@@ -14,7 +14,7 @@
     "license": "LGPL-3",
 
     ### Necessary modules ###
-    "depends": ["base", "base_location"],
+    "depends": ["base", "base_location", "markdown_field"],
 
     ### Module category and version ###
     "category": "Uncategorized",
