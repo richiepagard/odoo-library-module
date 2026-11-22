@@ -1,7 +1,8 @@
 import { registry } from "@web/core/registry";
-import { Component, useRef } from "@odoo/owl";
+import { Component, markup, useRef, useState } from "@odoo/owl";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 import { useInputField } from "@web/views/fields/input_field_hook";
+import { renderMarkdown } from "./markdown_render";
 
 export class MarkdownField extends Component {
     static template = "markdown_field.MarkdownField";
@@ -9,10 +10,32 @@ export class MarkdownField extends Component {
 
     setup() {
         this.textareaRef = useRef("textarea");
+        this.state = useState({ preview: false, text: "" });
         useInputField({
             getValue: () => this.props.record.data[this.props.name] || "",
             refName: "textarea",
         });
+    }
+
+    get showPreview() {
+        return this.props.readonly || this.state.preview;
+    }
+
+    get previewHtml() {
+        // while editing, use the live textarea text (the record is only
+        // updated on blur); when readonly, use the saved value.
+        const text = this.props.readonly
+            ? this.props.record.data[this.props.name] || ""
+            : this.state.text;
+        // renderMarkdown escapes all HTML, so marking it safe is OK.
+        return markup(renderMarkdown(text));
+    }
+
+    togglePreview() {
+        if (!this.state.preview) {
+            this.state.text = this.textareaRef.el.value;
+        }
+        this.state.preview = !this.state.preview;
     }
 
     // keep the textarea focused/selected when a toolbar button is clicked
